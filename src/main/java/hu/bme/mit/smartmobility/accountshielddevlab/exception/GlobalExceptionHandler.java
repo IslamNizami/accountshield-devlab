@@ -1,4 +1,4 @@
-package hu.bme.mit.smartmobility.accountshielddevlab.Exception;
+package hu.bme.mit.smartmobility.accountshielddevlab.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

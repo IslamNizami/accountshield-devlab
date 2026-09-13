@@ -1,9 +1,9 @@
-package hu.bme.mit.smartmobility.accountshielddevlab.Controller;
+package hu.bme.mit.smartmobility.accountshielddevlab.controller;
 
 
-import hu.bme.mit.smartmobility.accountshielddevlab.Dto.ProfileResponseDTO;
-import hu.bme.mit.smartmobility.accountshielddevlab.Dto.UpdateProfileRequestDTO;
-import hu.bme.mit.smartmobility.accountshielddevlab.Service.UserService;
+import hu.bme.mit.smartmobility.accountshielddevlab.dto.ProfileResponseDTO;
+import hu.bme.mit.smartmobility.accountshielddevlab.dto.UpdateProfileRequestDTO;
+import hu.bme.mit.smartmobility.accountshielddevlab.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

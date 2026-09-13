@@ -1,7 +1,7 @@
-package hu.bme.mit.smartmobility.accountshielddevlab.Dto;
+package hu.bme.mit.smartmobility.accountshielddevlab.dto;
 
 
-import hu.bme.mit.smartmobility.accountshielddevlab.ENUM.ROLE;
+import hu.bme.mit.smartmobility.accountshielddevlab.enums.Role;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +11,6 @@ public class ProfileResponseDTO {
     private Long id;
     private String name;
     private String email;
-    private ROLE role;
+    private Role role;
     private boolean verified;
 }

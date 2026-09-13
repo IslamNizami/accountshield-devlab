@@ -1,11 +1,16 @@
-package hu.bme.mit.smartmobility.accountshielddevlab.Dto;
+package hu.bme.mit.smartmobility.accountshielddevlab.dto;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 public class UpdateUserStatusRequestDTO {
-    private boolean accountLocked;
-    private boolean verified;
+
+    @NotNull(message = "accountLocked field is required")
+    private Boolean accountLocked;
+
+    @NotNull(message = "verified field is required")
+    private Boolean verified;
 }

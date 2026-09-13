@@ -1,4 +1,4 @@
-package hu.bme.mit.smartmobility.accountshielddevlab.Dto;
+package hu.bme.mit.smartmobility.accountshielddevlab.dto;
 
 
 import jakarta.validation.constraints.Email;

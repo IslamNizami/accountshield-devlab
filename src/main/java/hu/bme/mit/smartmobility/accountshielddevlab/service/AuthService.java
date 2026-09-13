@@ -1,18 +1,17 @@
-package hu.bme.mit.smartmobility.accountshielddevlab.Service;
+package hu.bme.mit.smartmobility.accountshielddevlab.service;
 
-import hu.bme.mit.smartmobility.accountshielddevlab.Dto.LoginRequestDTO;
-import hu.bme.mit.smartmobility.accountshielddevlab.Dto.RegisterRequestDO;
-import hu.bme.mit.smartmobility.accountshielddevlab.Dto.RegisterResponseDTO;
-import hu.bme.mit.smartmobility.accountshielddevlab.ENUM.ROLE;
-import hu.bme.mit.smartmobility.accountshielddevlab.Mapper.UserMapper;
-import hu.bme.mit.smartmobility.accountshielddevlab.Model.User;
-import hu.bme.mit.smartmobility.accountshielddevlab.Repository.UserRepository;
+import hu.bme.mit.smartmobility.accountshielddevlab.dto.LoginRequestDTO;
+import hu.bme.mit.smartmobility.accountshielddevlab.dto.RegisterRequestDO;
+import hu.bme.mit.smartmobility.accountshielddevlab.dto.RegisterResponseDTO;
+import hu.bme.mit.smartmobility.accountshielddevlab.enums.Role;
+import hu.bme.mit.smartmobility.accountshielddevlab.mapper.UserMapper;
+import hu.bme.mit.smartmobility.accountshielddevlab.model.User;
+import hu.bme.mit.smartmobility.accountshielddevlab.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -37,7 +36,7 @@ public class AuthService {
 
         user.setPassword(passwordEncoder.encode(registerRequestDO.getPassword()));
 
-        user.setRole(ROLE.ROLE_USER);
+        user.setRole(Role.ROLE_USER);
 
         userRepository.save(user);
 

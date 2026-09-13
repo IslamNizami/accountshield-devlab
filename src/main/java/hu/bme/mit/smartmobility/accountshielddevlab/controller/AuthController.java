@@ -1,10 +1,11 @@
-package hu.bme.mit.smartmobility.accountshielddevlab.Controller;
+package hu.bme.mit.smartmobility.accountshielddevlab.controller;
 
 
-import hu.bme.mit.smartmobility.accountshielddevlab.Dto.LoginRequestDTO;
-import hu.bme.mit.smartmobility.accountshielddevlab.Dto.RegisterRequestDO;
-import hu.bme.mit.smartmobility.accountshielddevlab.Dto.RegisterResponseDTO;
-import hu.bme.mit.smartmobility.accountshielddevlab.Service.AuthService;
+import hu.bme.mit.smartmobility.accountshielddevlab.dto.LoginRequestDTO;
+import hu.bme.mit.smartmobility.accountshielddevlab.dto.LoginResponseDTO;
+import hu.bme.mit.smartmobility.accountshielddevlab.dto.RegisterRequestDO;
+import hu.bme.mit.smartmobility.accountshielddevlab.dto.RegisterResponseDTO;
+import hu.bme.mit.smartmobility.accountshielddevlab.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -28,8 +29,8 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@Valid @RequestBody LoginRequestDTO requestDTO) {
-        String token = authService.login(requestDTO);
-        return ResponseEntity.ok(token);
+    public ResponseEntity<LoginResponseDTO> login(@Valid @RequestBody LoginRequestDTO loginRequestDTO) {
+        String token = authService.login(loginRequestDTO);
+        return ResponseEntity.ok(new LoginResponseDTO(token, "Bearer"));
     }
 }

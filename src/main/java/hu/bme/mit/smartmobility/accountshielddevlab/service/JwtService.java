@@ -1,4 +1,4 @@
-package hu.bme.mit.smartmobility.accountshielddevlab.Service;
+package hu.bme.mit.smartmobility.accountshielddevlab.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -25,7 +25,7 @@ public class JwtService {
         return Jwts.builder()
                 .subject(email)
                 .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 15)) // 15 dakika
+                .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 15)) // 15 dəqiqə
                 .signWith(getSignKey())
                 .compact();
     }
@@ -35,11 +35,11 @@ public class JwtService {
     }
 
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
-        final Claims claims = exctractAllClaims(token);
+        final Claims claims = extractAllClaims(token);
         return claimsResolver.apply(claims);
     }
 
-    private Claims exctractAllClaims(String token) {
+    private Claims extractAllClaims(String token) {
         return Jwts.parser()
                 .verifyWith(getSignKey())
                 .build()
@@ -53,6 +53,6 @@ public class JwtService {
     }
 
     private boolean isTokenExpired(String token) {
-        return exctractAllClaims(token).getExpiration().before(new Date());
+        return extractAllClaims(token).getExpiration().before(new Date());
     }
 }

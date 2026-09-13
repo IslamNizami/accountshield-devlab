@@ -1,9 +1,9 @@
-package hu.bme.mit.smartmobility.accountshielddevlab.Mapper;
+package hu.bme.mit.smartmobility.accountshielddevlab.mapper;
 
-import hu.bme.mit.smartmobility.accountshielddevlab.Dto.ProfileResponseDTO;
-import hu.bme.mit.smartmobility.accountshielddevlab.Dto.RegisterRequestDO;
-import hu.bme.mit.smartmobility.accountshielddevlab.Dto.RegisterResponseDTO;
-import hu.bme.mit.smartmobility.accountshielddevlab.Model.User;
+import hu.bme.mit.smartmobility.accountshielddevlab.dto.ProfileResponseDTO;
+import hu.bme.mit.smartmobility.accountshielddevlab.dto.RegisterRequestDO;
+import hu.bme.mit.smartmobility.accountshielddevlab.dto.RegisterResponseDTO;
+import hu.bme.mit.smartmobility.accountshielddevlab.model.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

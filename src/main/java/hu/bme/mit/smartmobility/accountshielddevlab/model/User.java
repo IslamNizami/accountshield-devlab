@@ -1,10 +1,9 @@
-package hu.bme.mit.smartmobility.accountshielddevlab.Model;
+package hu.bme.mit.smartmobility.accountshielddevlab.model;
 
-import hu.bme.mit.smartmobility.accountshielddevlab.ENUM.ROLE;
+import hu.bme.mit.smartmobility.accountshielddevlab.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -29,7 +28,7 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private ROLE role;
+    private Role role;
 
     //For email verification
     @Column(name = "verified",nullable = false)

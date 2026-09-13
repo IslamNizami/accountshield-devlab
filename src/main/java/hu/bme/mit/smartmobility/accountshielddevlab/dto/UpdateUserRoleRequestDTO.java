@@ -1,6 +1,6 @@
-package hu.bme.mit.smartmobility.accountshielddevlab.Dto;
+package hu.bme.mit.smartmobility.accountshielddevlab.dto;
 
-import hu.bme.mit.smartmobility.accountshielddevlab.ENUM.ROLE;
+import hu.bme.mit.smartmobility.accountshielddevlab.enums.Role;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,5 +9,5 @@ import lombok.Setter;
 @Setter
 public class UpdateUserRoleRequestDTO {
     @NotNull(message = "Role cannot be null")
-    private ROLE role;
+    private Role role;
 }

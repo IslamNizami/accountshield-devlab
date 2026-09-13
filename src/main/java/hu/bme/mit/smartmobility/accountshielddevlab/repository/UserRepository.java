@@ -1,6 +1,6 @@
-package hu.bme.mit.smartmobility.accountshielddevlab.Repository;
+package hu.bme.mit.smartmobility.accountshielddevlab.repository;
 
-import hu.bme.mit.smartmobility.accountshielddevlab.Model.User;
+import hu.bme.mit.smartmobility.accountshielddevlab.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

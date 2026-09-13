@@ -1,10 +1,10 @@
-package hu.bme.mit.smartmobility.accountshielddevlab.Service;
+package hu.bme.mit.smartmobility.accountshielddevlab.service;
 
-import hu.bme.mit.smartmobility.accountshielddevlab.Dto.ProfileResponseDTO;
-import hu.bme.mit.smartmobility.accountshielddevlab.Dto.UpdateProfileRequestDTO;
-import hu.bme.mit.smartmobility.accountshielddevlab.Mapper.UserMapper;
-import hu.bme.mit.smartmobility.accountshielddevlab.Model.User;
-import hu.bme.mit.smartmobility.accountshielddevlab.Repository.UserRepository;
+import hu.bme.mit.smartmobility.accountshielddevlab.dto.ProfileResponseDTO;
+import hu.bme.mit.smartmobility.accountshielddevlab.dto.UpdateProfileRequestDTO;
+import hu.bme.mit.smartmobility.accountshielddevlab.mapper.UserMapper;
+import hu.bme.mit.smartmobility.accountshielddevlab.model.User;
+import hu.bme.mit.smartmobility.accountshielddevlab.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;

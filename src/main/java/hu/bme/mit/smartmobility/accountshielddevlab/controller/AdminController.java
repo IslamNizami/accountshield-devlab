@@ -1,14 +1,12 @@
-package hu.bme.mit.smartmobility.accountshielddevlab.Controller;
+package hu.bme.mit.smartmobility.accountshielddevlab.controller;
 
-import hu.bme.mit.smartmobility.accountshielddevlab.Dto.ProfileResponseDTO;
-import hu.bme.mit.smartmobility.accountshielddevlab.Dto.UpdateUserRoleRequestDTO;
-import hu.bme.mit.smartmobility.accountshielddevlab.Dto.UpdateUserStatusRequestDTO;
-import hu.bme.mit.smartmobility.accountshielddevlab.Service.AdminService;
-import hu.bme.mit.smartmobility.accountshielddevlab.Service.UserService;
+import hu.bme.mit.smartmobility.accountshielddevlab.dto.ProfileResponseDTO;
+import hu.bme.mit.smartmobility.accountshielddevlab.dto.UpdateUserRoleRequestDTO;
+import hu.bme.mit.smartmobility.accountshielddevlab.dto.UpdateUserStatusRequestDTO;
+import hu.bme.mit.smartmobility.accountshielddevlab.service.AdminService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,36 +16,28 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AdminController {
 
-    private final UserService userService;
     private final AdminService adminService;
 
     @GetMapping("/users")
-    public ResponseEntity<List<ProfileResponseDTO>> getAllUsers(Authentication authentication){
-        String adminEmail = authentication.getName();
-        List<ProfileResponseDTO> users = adminService.getAllUsers(adminEmail);
-        return ResponseEntity.ok(users);
+    public ResponseEntity<List<ProfileResponseDTO>> getAllUsers() {
+        return ResponseEntity.ok(adminService.getAllUsers());
     }
 
     @PatchMapping("/users/{id}/role")
-    public ResponseEntity<ProfileResponseDTO> updateUserRole(Authentication authentication,
-                                                             @PathVariable Long id,
+    public ResponseEntity<ProfileResponseDTO> updateUserRole(@PathVariable Long id,
                                                              @Valid @RequestBody UpdateUserRoleRequestDTO requestDTO) {
-        String adminEmail = authentication.getName();
-        ProfileResponseDTO updatedUser = adminService.updateUserRole(adminEmail, id, requestDTO);
-        return ResponseEntity.ok(updatedUser);
+        return ResponseEntity.ok(adminService.updateUserRole(id, requestDTO));
     }
+
     @PatchMapping("/users/{id}/status")
-    public ResponseEntity<ProfileResponseDTO> updateUserStatus(Authentication authentication,
-                                                               @PathVariable Long id,
-                                                               @RequestBody UpdateUserStatusRequestDTO requestDTO) {
-        String adminEmail = authentication.getName();
-        ProfileResponseDTO updatedUser = adminService.updateUserStatus(adminEmail, id, requestDTO);
-        return ResponseEntity.ok(updatedUser);
+    public ResponseEntity<ProfileResponseDTO> updateUserStatus(@PathVariable Long id,
+                                                               @Valid @RequestBody UpdateUserStatusRequestDTO requestDTO) {
+        return ResponseEntity.ok(adminService.updateUserStatus(id, requestDTO));
     }
+
     @DeleteMapping("/users/{id}")
-    public ResponseEntity<String> deleteUser(Authentication authentication, @PathVariable Long id) {
-        String adminEmail = authentication.getName();
-        adminService.deleteUser(adminEmail, id);
-        return ResponseEntity.ok("User successfully deleted by admin.");
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+        adminService.deleteUser(id);
+        return ResponseEntity.noContent().build(); // 204 No Content
     }
 }

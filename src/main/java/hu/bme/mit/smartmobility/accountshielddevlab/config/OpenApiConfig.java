@@ -1,4 +1,4 @@
-package hu.bme.mit.smartmobility.accountshielddevlab.Config;
+package hu.bme.mit.smartmobility.accountshielddevlab.config;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
